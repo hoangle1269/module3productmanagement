@@ -2,10 +2,7 @@ package com.example.productmanagement.service;
 
 import com.example.productmanagement.model.Product;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -23,26 +20,26 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> findAll() {
-        return Collections.emptyList();
+        return new ArrayList<>(products.values());
     }
 
     @Override
     public void create(Product product) {
-
+        products.put(product.getId(), product);
     }
 
     @Override
     public Product findById(int id) {
-        return null;
+        return products.get(id);
     }
 
     @Override
     public void update(int id, Product product) {
-
+        products.put(id, product);
     }
 
     @Override
     public void remove(int id) {
-
+        products.remove(id);
     }
 }
